@@ -1,0 +1,167 @@
+// ============================================================================
+// FinGuard - Banking Fraud Detection & Transaction Intelligence System
+// Power BI DAX Measures Specification
+// Author: Senior Power BI & SQL Engineer
+// Architecture: Compatible with Star Schema & Aggregated Data Model
+// ============================================================================
+
+// ----------------------------------------------------------------------------
+// SECTION 1: EXECUTIVE OVERVIEW MEASURES (PAGE 1)
+// ----------------------------------------------------------------------------
+
+// Total Transactions Ingested
+Total Transactions = 
+COUNTROWS(Transactions)
+
+// Total Legitimate Transactions (Class = 0)
+Legitimate Transactions = 
+CALCULATE(
+    COUNTROWS(Transactions),
+    Transactions[Class] = 0
+)
+
+// Total Fraudulent Transactions (Class = 1)
+Fraud Transactions = 
+CALCULATE(
+    COUNTROWS(Transactions),
+    Transactions[Class] = 1
+)
+
+// Global Fraud Rate (%)
+Fraud Rate % = 
+DIVIDE([Fraud Transactions], [Total Transactions], 0)
+
+// Total Transaction Turnover Volume (EUR)
+Total Volume EUR = 
+SUM(Transactions[Amount])
+
+// Total Legitimate Turnover Volume (EUR)
+Legitimate Volume EUR = 
+CALCULATE(
+    SUM(Transactions[Amount]),
+    Transactions[Class] = 0
+)
+
+// Total Fraudulent Financial Exposure (EUR)
+Fraud Exposure EUR = 
+CALCULATE(
+    SUM(Transactions[Amount]),
+    Transactions[Class] = 1
+)
+
+// Fraud Exposure Share (%)
+Fraud Exposure Share % = 
+DIVIDE([Fraud Exposure EUR], [Total Volume EUR], 0)
+
+// Average Transaction Amount Overall (EUR)
+Average Ticket EUR = 
+AVERAGE(Transactions[Amount])
+
+// Average Fraudulent Ticket Size (EUR)
+Average Fraud Ticket EUR = 
+CALCULATE(
+    AVERAGE(Transactions[Amount]),
+    Transactions[Class] = 1
+)
+
+// Average Legitimate Ticket Size (EUR)
+Average Legit Ticket EUR = 
+CALCULATE(
+    AVERAGE(Transactions[Amount]),
+    Transactions[Class] = 0
+)
+
+
+// ----------------------------------------------------------------------------
+// SECTION 2: FRAUD ANALYSIS & TEMPORAL VELOCITY MEASURES (PAGE 2)
+// ----------------------------------------------------------------------------
+
+// Peak Fraud Hour
+Peak Fraud Hour = 
+TOPN(
+    1,
+    VALUES(Transactions[Hour]),
+    [Fraud Transactions],
+    DESC
+)
+
+// Hourly Fraud Velocity Index (Current Hour vs Daily Hourly Average)
+Hourly Fraud Velocity Index = 
+DIVIDE(
+    [Fraud Transactions],
+    DIVIDE([Fraud Transactions], 24, 0),
+    1
+)
+
+// Day 1 vs Day 2 Fraud Variance
+Day 1 Fraud Count = 
+CALCULATE(
+    [Fraud Transactions],
+    Transactions[Day] = 1
+)
+
+Day 2 Fraud Count = 
+CALCULATE(
+    [Fraud Transactions],
+    Transactions[Day] = 2
+)
+
+DoD Fraud Change % = 
+DIVIDE([Day 2 Fraud Count] - [Day 1 Fraud Count], [Day 1 Fraud Count], 0)
+
+
+// ----------------------------------------------------------------------------
+// SECTION 3: RISK INTELLIGENCE & INVESTIGATION TRIAGE (PAGE 3)
+// ----------------------------------------------------------------------------
+
+// High-Risk Transactions Count (Score >= 75)
+High Risk Transactions = 
+CALCULATE(
+    COUNTROWS(Transactions),
+    Transactions[Fraud_Risk_Score] >= 75.0
+)
+
+// Medium-Risk Transactions Count (40 <= Score < 75)
+Medium Risk Transactions = 
+CALCULATE(
+    COUNTROWS(Transactions),
+    Transactions[Fraud_Risk_Score] >= 40.0 && Transactions[Fraud_Risk_Score] < 75.0
+)
+
+// Low-Risk Transactions Count (Score < 40)
+Low Risk Transactions = 
+CALCULATE(
+    COUNTROWS(Transactions),
+    Transactions[Fraud_Risk_Score] < 40.0
+)
+
+// Frauds Successfully Caught in High-Risk Queue
+Frauds Detected in High Risk = 
+CALCULATE(
+    COUNTROWS(Transactions),
+    Transactions[Fraud_Risk_Score] >= 75.0 && Transactions[Class] = 1
+)
+
+// High Risk Tier Precision (% of High Risk that is actual fraud)
+High Risk Precision % = 
+DIVIDE([Frauds Detected in High Risk], [High Risk Transactions], 0)
+
+// Fraud Detection Coverage (% of all fraud caught in High Risk tier)
+Fraud Coverage Rate % = 
+DIVIDE([Frauds Detected in High Risk], [Fraud Transactions], 0)
+
+// Fraud Capital Saved in High Risk Tier (EUR)
+Fraud Loss Prevented EUR = 
+CALCULATE(
+    SUM(Transactions[Amount]),
+    Transactions[Fraud_Risk_Score] >= 75.0 && Transactions[Class] = 1
+)
+
+// Proportion of Fraud Exposure Prevented (%)
+Exposure Prevented % = 
+DIVIDE([Fraud Loss Prevented EUR], [Fraud Exposure EUR], 0)
+
+// Average Risk Score
+Portfolio Average Risk Score = 
+AVERAGE(Transactions[Fraud_Risk_Score])
+

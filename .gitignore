@@ -1,0 +1,46 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Caches and testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# Virtual Environments
+.venv/
+venv/
+ENV/
+env/
+
+# Large Datasets & Storage (Do not commit to Git or push >100MB files to GitHub)
+data/raw/*.csv
+*.csv
+*.db
+*.sqlite
+*.sqlite3
+*.joblib
+*.pkl
+*.pbix
+*.h5
+*.onnx
+
+# Jupyter Notebook Checkpoints
+.ipynb_checkpoints/
+
+# Environment variables & secrets
+.env
+.env.local
+.env.*.local
+
+# Operating System & IDE
+.DS_Store
+Thumbs.db
+ehthumbs.db
+.vscode/
+.idea/
+*.swp

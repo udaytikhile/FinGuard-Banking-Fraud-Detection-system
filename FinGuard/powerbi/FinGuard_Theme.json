@@ -1,0 +1,72 @@
+{
+  "name": "FinGuard Executive Dark Navy",
+  "dataColors": [
+    "#00E5FF",
+    "#FF4D4D",
+    "#FFAA00",
+    "#7928CA",
+    "#00DFD8",
+    "#FF0080",
+    "#70A1FF",
+    "#2ED573"
+  ],
+  "background": "#0A192F",
+  "foreground": "#CCD6F6",
+  "tableAccent": "#172A45",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [
+          {
+            "color": { "solid": { "color": "#172A45" } },
+            "transparency": 0
+          }
+        ],
+        "border": [
+          {
+            "show": true,
+            "color": { "solid": { "color": "#233554" } },
+            "radius": 8
+          }
+        ],
+        "title": [
+          {
+            "fontColor": { "solid": { "color": "#CCD6F6" } },
+            "fontFamily": "Segoe UI",
+            "fontSize": 12,
+            "heading": "Heading2"
+          }
+        ],
+        "dropShadow": [
+          {
+            "show": true,
+            "color": { "solid": { "color": "#050D1A" } },
+            "position": "Outer",
+            "preset": "BottomRight",
+            "shadowBlur": 10,
+            "transparency": 60
+          }
+        ]
+      }
+    },
+    "card": {
+      "*": {
+        "labels": [
+          {
+            "color": { "solid": { "color": "#00E5FF" } },
+            "fontFamily": "Segoe UI Semibold",
+            "fontSize": 24
+          }
+        ],
+        "categoryLabels": [
+          {
+            "color": { "solid": { "color": "#8892B0" } },
+            "fontFamily": "Segoe UI",
+            "fontSize": 10
+          }
+        ]
+      }
+    }
+  }
+}
+

@@ -1,0 +1,52 @@
+# Raw Data
+data/raw/
+*.csv
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environments
+.venv/
+venv/
+ENV/
+
+# Model binaries & large artifacts
+*.pkl
+*.joblib
+*.pbix
+*.h5
+*.onnx
+
+# Jupyter Notebook Checkpoints
+.ipynb_checkpoints/
+
+# Environment variables & secrets
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
