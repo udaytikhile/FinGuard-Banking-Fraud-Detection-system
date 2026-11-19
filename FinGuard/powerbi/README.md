@@ -2,7 +2,7 @@
 
 ## 0. Quick Start: Interactive Power BI Report
 The fully developed, interactive dashboard report is saved directly in this folder:
-- **Report File**: [`Bank Fraud Transaction.pbix`](Bank%20Fraud%20Transaction.pbix) (127.3 MB)
+- **Report File**: `Bank Fraud Transaction.pbix` (127.3 MB) — *Stored locally due to GitHub's 100MB limit*
 - **Instructions**: Double-click `Bank Fraud Transaction.pbix` to open it in **Power BI Desktop**. It includes all pre-configured visuals, Star Schema relationships, DAX measures, interactive slicers, and the enterprise Dark Navy theme.
 
 ---

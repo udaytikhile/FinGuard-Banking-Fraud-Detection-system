@@ -20,7 +20,7 @@ FinGuard audits credit card transaction streams, persists indexed records into a
 - **Clean and transform transaction records**: Remove duplicates, validate schemas, and engineer temporal features.
 - **Perform exploratory data analysis**: Quantify class distributions, monetary turnover exposure, and feature separability.
 - **Analyze fraud trends using SQL**: Ingest records into an analytical SQLite database and execute 15 business intelligence queries.
-- **Build an interactive Power BI dashboard**: Provide executive KPI monitoring, fraud velocity trends, and analyst ticket queues via [`Bank Fraud Transaction.pbix`](powerbi/Bank%20Fraud%20Transaction.pbix).
+- **Build an interactive Power BI dashboard**: Provide executive KPI monitoring, fraud velocity trends, and analyst ticket queues via [`powerbi/`](powerbi/) (`Bank Fraud Transaction.pbix`).
 
 ---
 
@@ -28,7 +28,7 @@ FinGuard audits credit card transaction streams, persists indexed records into a
 - **Python**: Core programming language (3.11+, validated on 3.14.7)
 - **Pandas & NumPy**: Data engineering, deduplication, and vectorized scoring
 - **SQL / SQLite**: Relational data warehousing, indexing, and 15 analytical queries
-- **Power BI**: Interactive 3-page dashboard ([`Bank Fraud Transaction.pbix`](powerbi/Bank%20Fraud%20Transaction.pbix)), DAX KPI measures, Star Schema
+- **Power BI**: Interactive 3-page dashboard (`Bank Fraud Transaction.pbix`), DAX KPI measures, Star Schema
 - **Scikit-Learn**: Machine learning classification (Random Forest, Logistic Regression, Isolation Forest, PR-AUC tuning)
 - **Matplotlib & Seaborn**: Statistical charting and 6 publication-ready figures
 - **Pytest**: Quality assurance test suite (20 automated unit and integration tests)
@@ -118,7 +118,10 @@ FinGuard/
 
 ## Power BI Dashboard
 
-The Power BI report file is located at [`powerbi/Bank Fraud Transaction.pbix`](powerbi/Bank%20Fraud%20Transaction.pbix) (127.3 MB).
+The Power BI dashboard suite is managed under [`powerbi/`](powerbi/).
+
+> [!NOTE]
+> **File Size Notice**: `Bank Fraud Transaction.pbix` is **127.3 MB** (which exceeds GitHub's 100MB repository file limit). It is stored locally in your workspace at `FinGuard/powerbi/Bank Fraud Transaction.pbix`. You can open it directly in **Power BI Desktop**, or publish it to the **Power BI Service** / attach it to a **GitHub Release**.
 
 ### Dashboard Pages
 1. **Executive Overview**: Executive KPI summary cards (Total Volume, Fraud Loss, Exposure Rate), 48-hour volume timeline, fraud vs legitimate split.
