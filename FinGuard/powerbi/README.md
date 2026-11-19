@@ -61,6 +61,8 @@ To apply the theme:
 
 ## 4. Dashboard Page 1: Executive Overview
 
+![Dashboard Page 1: FinGuard Fraud Intelligence Command Center](images/dashboard_page1_command_center.png)
+
 ### Layout Configuration
 - **Top Header Bar**: System Title (*FinGuard Fraud Intelligence Command Center*), System Status (*Live - 283,726 Transactions Loaded*), Date/Time Slicer (*Day 1, Day 2*).
 - **Executive KPI Cards (Top Row, 6 Cards)**:
@@ -92,6 +94,8 @@ To apply the theme:
 
 ## 5. Dashboard Page 2: Fraud Analysis & Temporal Velocity
 
+![Dashboard Page 2: Fraud Analysis & Temporal Velocity](images/dashboard_page2_fraud_analysis.png)
+
 ### Core Visualizations
 1. ** Fraud by TransactionAmount Bracket (Horizontal Bar Chart)**:
    - Y-Axis: `Amount_Bracket`
@@ -113,6 +117,8 @@ To apply the theme:
 ---
 
 ## 6. Dashboard Page 3: Risk Intelligence & Investigation Triage
+
+![Dashboard Page 3: Risk Intelligence & Investigation Triage](images/dashboard_page3_risk_intelligence.jpg)
 
 ### Executive Triage KPIs
 1. **High-Risk Alerts**: `668` transactions (0.235% of traffic, 96.19% fraud capture rate).

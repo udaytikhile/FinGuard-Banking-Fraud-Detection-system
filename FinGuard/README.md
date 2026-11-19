@@ -123,10 +123,26 @@ The Power BI dashboard suite is managed under [`powerbi/`](powerbi/).
 > [!NOTE]
 > **File Size Notice**: `Bank Fraud Transaction.pbix` is **127.3 MB** (which exceeds GitHub's 100MB repository file limit). It is stored locally in your workspace at `FinGuard/powerbi/Bank Fraud Transaction.pbix`. You can open it directly in **Power BI Desktop**, or publish it to the **Power BI Service** / attach it to a **GitHub Release**.
 
-### Dashboard Pages
-1. **Executive Overview**: Executive KPI summary cards (Total Volume, Fraud Loss, Exposure Rate), 48-hour volume timeline, fraud vs legitimate split.
-2. **Fraud Analysis**: Diurnal hourly fraud velocity combo chart, 5-tier amount bracket distribution, and day-over-day trends.
-3. **Risk Intelligence**: 3-tier risk funnel, continuous risk score distribution, and interactive high-priority investigation queue table with slicers.
+### Interactive Dashboard Showcase
+
+#### Page 1: FinGuard Fraud Intelligence Command Center
+Executive KPI overview tracking total transactions (283,726), confirmed fraud (473), financial exposure (€58,591.39), monetary exposure by amount bracket, diurnal business traffic cycles peaking between 10:00 and 21:00, and day-over-day fraud split.
+
+![FinGuard Fraud Intelligence Command Center](reports/figures/dashboard_page1_command_center.png)
+
+---
+
+#### Page 2: Fraud Analysis & Temporal Velocity
+Deep-dive into fraud velocity patterns: transaction class comparative metrics, fraud exposure by transaction amount bracket (€300–€999.99 leading exposure at ~€27.5K), hourly fraud rate curve peaking at 02:00 AM (1.45%) and 04:00 AM (1.05%), and dual-axis volume vs. fraud rate.
+
+![Fraud Analysis and Temporal Velocity](reports/figures/dashboard_page2_fraud_analysis.png)
+
+---
+
+#### Page 3: Risk Intelligence & Investigation Triage
+Operational compliance cockpit: dynamic 3-tier triage cards (High Risk: 668, Medium Risk: 2K, Low Risk: 281K, Capital Saved: €54.81K), interactive high-priority investigation queue table with data bar risk scores, risk score decile histogram, and risk tier stratification funnel.
+
+![Risk Intelligence and Investigation Triage](reports/figures/dashboard_page3_risk_intelligence.jpg)
 
 *Theme specification, DAX measures, and import instructions are detailed in [powerbi/README.md](powerbi/README.md).*
 
